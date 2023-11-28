@@ -64,11 +64,11 @@ export default function Home() {
       </MaxWidthWrapper>
       <section className="border-t border-gray-200 bg-gray">
         <MaxWidthWrapper className="py-20">
-          <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
+          <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0 place-items-center">
             {services.map((service) => (
               <div
                 key={service.name}
-                className="text-center md:flex md:items-start md:text-left lg:block"
+                className="text-center md:flex md:items-start md:text-left lg-block mt-6"
               >
                 <div className="md:flex-shrink-0 flex justify-center">
                   <div className="h-16 w-16 flex justify-center items-center rounded-full bg-blue-100 text-blue-900">
