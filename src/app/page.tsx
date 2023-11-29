@@ -16,7 +16,7 @@ export default function Home() {
       name: "Instant Delivery",
       Icon: ArrowDownToLine,
       description:
-        "get your assets delievered to your email in seconds and download them right a way",
+        "Get your assets delievered to your email in seconds and download them right a way",
     },
     {
       name: "Guaranteed Quality",
@@ -24,17 +24,19 @@ export default function Home() {
       description:
         "Every asset quality in our collection is verified and ensured by our team against highest quality standards.",
     },
-    {
-      name: "Instant Delivery",
-      Icon: ArrowUp01,
-      description:
-        "get your assets delievered to your email in seconds and download them right a way.",
-    },
+
     {
       name: "For the people",
       Icon: HeartHandshake,
       description: "We pledge 1% of our income to the charities ",
     },
+    //  TODO: experimenting with fourth item
+    // {
+    //   name: "Instant Delivery",
+    //   Icon: ArrowUp01,
+    //   description:
+    //     "get your assets delievered to your email in seconds and download them right a way.",
+    // },
   ];
 
   return (
@@ -64,7 +66,7 @@ export default function Home() {
       </MaxWidthWrapper>
       <section className="border-t border-gray-200 bg-gray">
         <MaxWidthWrapper className="py-20">
-          <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0 place-items-center">
+          <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-4 ">
             {services.map((service) => (
               <div
                 key={service.name}
@@ -77,8 +79,12 @@ export default function Home() {
                 </div>
 
                 <div className="mt-6 text-center">
-                  <h3 className="text-base font-medium text-gray-900">{service.name}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{service.description}</p>
+                  <h3 className="text-base font-medium text-gray-900">
+                    {service.name}
+                  </h3>
+                  <p className="mt-3 text-md text-muted-foreground">
+                    {service.description}
+                  </p>
                 </div>
               </div>
             ))}
