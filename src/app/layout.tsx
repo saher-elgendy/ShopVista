@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ShopVista",
-  description: "Unleash your creativity with our vast library of high-quality digital assets. Explore a diverse range of stock photos, music, templates, and more to enhance your projects",
+  description:
+    "Unleash your creativity with our vast library of high-quality digital assets. Explore a diverse range of stock photos, music, templates, and more to enhance your projects",
 };
 
 export default function RootLayout({
@@ -21,6 +23,7 @@ export default function RootLayout({
         className={cn("relative h-full font-sans antialiased", inter.className)}
       >
         <main className="relative flex flex-col min-h-screen">
+          <Navbar />
           <div className=" py-5 flex-grow flex-1">{children}</div>
         </main>
       </body>
