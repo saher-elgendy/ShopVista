@@ -1,6 +1,7 @@
 import { Icons } from "./icons";
 import MaxWidthWrapper from "./max-width-wrapper";
 import Link from "next/link";
+import NavItems from "./nav-items";
 
 
 const Navbar = () => {
@@ -15,7 +16,9 @@ const Navbar = () => {
                 </Link>
               </div>
 
-              <div className="hidden z-50 lg:ml-8 lg:self-stretch"></div>
+              <div className="hidden z-50 lg:ml-8 lg:self-stretch">
+                {NavItems}
+              </div>
             </div>
           </div>
         </MaxWidthWrapper>
