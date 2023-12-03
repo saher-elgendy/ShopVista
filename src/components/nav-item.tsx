@@ -39,12 +39,12 @@ const NavItem = ({
       </Button>
     
       {isOpen ? (
-        <div className="absolute inset-x-0 top-full  bg-white">
-          <div className="grid grid-cols-4 gap-x-8 gap-y-10">
+        <div className="absolute inset-x-0 top-full  bg-white shadow p-8">
+          <div className="grid grid-cols-3 gap-x-8 gap-y-10">
             {category.details.map((item) => {
               return (
-                <div className="relative ">
-                  <div className="relative h-48">
+                <div className=" ">
+                  <div className="relative h-64">
                     <Image
                       src={item.imageSrc}
                       alt="product-category"
@@ -52,7 +52,7 @@ const NavItem = ({
                       objectFit="contain"
                     />
                   </div>
-                  <div className="p-2 bg-white">
+                  <div className=" bg-white">
                     <Link href="#" className="font-medium text-sm">
                       {item.name}
                     </Link>
