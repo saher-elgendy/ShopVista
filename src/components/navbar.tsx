@@ -6,7 +6,7 @@ import NavItems from "./nav-items";
 
 const Navbar = () => {
   return (
-    <div className="sticky z-50 top-0 inset-x-0 h-16 bg-white">
+    <div className="sticky z-50 top-0 inset-x-0 h-16 w-full bg-white">
         <MaxWidthWrapper>
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
@@ -16,8 +16,8 @@ const Navbar = () => {
                 </Link>
               </div>
 
-              <div className="hidden z-50 lg:ml-8 lg:self-stretch">
-                {NavItems}
+              <div className="relative z-50 lg:ml-8 lg:self-stretch w-full">
+                <NavItems />
               </div>
             </div>
           </div>
