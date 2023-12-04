@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import NavItem from "./nav-item";
 import { PRODUCT_CATEGORIES } from "@/local-data";
 

@@ -39,17 +39,18 @@ const NavItem = ({
       </Button>
     
       {isOpen ? (
-        <div className="absolute inset-x-0 top-full  bg-white shadow p-8">
+        <div className="absolute inset-x-0 top-full  bg-white shadow p-9">
           <div className="grid grid-cols-3 gap-x-8 gap-y-10">
             {category.details.map((item) => {
               return (
-                <div className=" ">
-                  <div className="relative h-64">
+                <div className="">
+                  <div className="relative lg:h-64 md:h-48">
                     <Image
                       src={item.imageSrc}
                       alt="product-category"
                       layout="fill"
-                      objectFit="contain"
+                      // objectFit="cover"
+                      className="object-contain"
                     />
                   </div>
                   <div className=" bg-white">
