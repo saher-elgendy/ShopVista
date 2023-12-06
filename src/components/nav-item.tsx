@@ -5,6 +5,10 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { PRODUCT_CATEGORIES } from "@/local-data";
 import Link from "next/link";
+import { useRef } from "react";
+import { useOnClickOutside } from "@/hooks/use-onclick-outside";
+
+
 
 type Category = (typeof PRODUCT_CATEGORIES)[number];
 
@@ -23,8 +27,12 @@ const NavItem = ({
   isOpen,
   isAnyOpen,
 }: NavItemProps) => {
+
+  const navRef = useRef<HTMLDivElement | null>(null);
+  useOnClickOutside(navRef, close);
+
   return (
-    <div className="flex items-center">
+    <div className="flex items-center" ref={navRef}>
       <Button
         className="gap-1.5 flex justify-center"
         onClick={handleOpen}
@@ -37,9 +45,9 @@ const NavItem = ({
           })}
         />
       </Button>
-    
+
       {isOpen ? (
-        <div className="absolute inset-x-0 top-full  bg-white shadow p-9">
+        <div className="absolute inset-x-0 top-full  bg-white shadow p-9 animate-in fade-in-5" onClick={close}>
           <div className="grid grid-cols-3 gap-x-8 gap-y-10">
             {category.details.map((item) => {
               return (
@@ -49,7 +57,6 @@ const NavItem = ({
                       src={item.imageSrc}
                       alt="product-category"
                       layout="fill"
-                      // objectFit="cover"
                       className="object-contain"
                     />
                   </div>

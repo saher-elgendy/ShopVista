@@ -29,9 +29,8 @@ const NavItems = () => {
 
   const close = () => setActiveIndex(null);
 
-
   return (
-    <div className="flex gap-4 h-full">
+    <div className="flex gap-4 h-full" >
       {PRODUCT_CATEGORIES.map((category, i) => {
         return (
           <NavItem
