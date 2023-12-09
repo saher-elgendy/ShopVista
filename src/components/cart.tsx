@@ -30,7 +30,7 @@ const cart = () => {
                     <span className="text-sm font-semibold" >Cart ({itemsCount})</span>
                 </div>
 
-                <div>
+                <div className='flex-grow flex flex-col justify-center items-center'>
                     <div className='relative h-64 w-64'>
                         <Image src="/hippo-empty-cart.png" alt="hippo-image" fill />
                     </div>
