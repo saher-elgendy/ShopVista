@@ -27,24 +27,31 @@ const Navbar = () => {
             <div className="flex justify-center items-center">
               {
                 !user ? (
-                  <Link
-                    href="./sign-in"
-                    className={buttonVariants({
-                      variant: 'ghost'
-                    })}>
-                    Sign in
-                  </Link>
+                  <div className="pr-4 border-r">
+                    <Link
+                      href="./sign-in"
+                      className={buttonVariants({
+                        variant: 'ghost'
+                      })}>
+                      Sign in
+                    </Link>
+                  </div>
                 ) : null
+
               }
 
               {
                 !user ? (
-                  <Link
-                    href="./sign-up"
-                    className={buttonVariants({
-                      variant: 'ghost'
-                    })}
-                  >Create Account</Link>
+
+                  <div className="border-r mr-3">
+                    <Link
+                      href="./sign-up"
+                      className={buttonVariants({
+                        variant: 'ghost'
+                      })}
+                    >Create Account</Link>
+                  </div>
+
                 ) : null
               }
 
