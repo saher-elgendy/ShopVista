@@ -10,14 +10,13 @@ import {
     SheetTrigger,
 } from './ui/sheet'
 import Image from 'next/image';
-import { Button, buttonVariants } from './ui/button';
+import { buttonVariants } from './ui/button';
 import Link from 'next/link';
 
 
 const cart = () => {
-
     const itemsCount = 1;
-
+    
     return (
         <Sheet>
             <SheetTrigger className='group'>
@@ -54,9 +53,7 @@ const cart = () => {
                             </div>
                         </div> : null
                 }
-
                 <SheetFooter>
-
                     {
                         itemsCount ?
                             <SheetTrigger asChild>
@@ -69,11 +66,8 @@ const cart = () => {
                                 </Link>
                             </SheetTrigger> : null
                     }
-
                 </SheetFooter>
             </SheetContent>
-
-
         </Sheet>
     )
 }
