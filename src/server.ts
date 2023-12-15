@@ -19,8 +19,6 @@ const start = () => {
 	app.use((req, res) => nextHandler(req, res));
 	
 	nextApp.prepare().then()
-
-	
 };
 
 start();
