@@ -4,7 +4,7 @@ import { slateEditor } from '@payloadcms/richtext-slate';
 import dotenv from 'dotenv';
 import path from 'path';
 import { buildConfig } from 'payload/config';
-import { Payload } from 'payload/dist/payload';
+
 
 
 dotenv.config({
