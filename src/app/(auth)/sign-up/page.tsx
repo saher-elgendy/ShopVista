@@ -7,9 +7,24 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@radix-ui/react-label';
 import { ArrowRight } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { AuthCredentialator, TAuthCredentaialsValidator } from '@/lib/validators/account-credentials-validator';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 
 const Page = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<TAuthCredentaialsValidator>({
+        resolver: zodResolver(AuthCredentialator)
+    })
+
+    const onSubmit = ({ email, password }: TAuthCredentaialsValidator) => {
+        return 
+    }
+
     return (
         <div className='container flex flex-col items-center pt-20'>
 
@@ -29,19 +44,19 @@ const Page = () => {
             </div>
 
             <div className='w-[350px] grid gap-6'>
-                <form className='mt-5'>
+                <form className='mt-5' onSubmit={handleSubmit(onSubmit)}>
                     <div className='grid gap-3'>
                         <Label htmlFor="/email" className='font-semibold'>Email</Label>
-                        <Input placeholder="you@example.com" className='font-light'></Input>
+                        <Input placeholder="you@example.com" className='font-light' {...register('email')}></Input>
                     </div>
                     <div className='grid gap-3 mt-5'>
                         <Label htmlFor="password" className='font-semibold'>Password</Label>
-                        <Input placeholder="Password" className='font-light '></Input>
+                        <Input placeholder="Password" className='font-light ' {...register('password')}></Input>
                     </div>
                 </form>
                 <Button>Sign up</Button>
             </div>
-            
+
         </div>
     )
 }
