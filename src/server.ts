@@ -6,10 +6,22 @@ import nextBuild from 'next/dist/build'
 import path from 'path'
 import { PayloadRequest } from 'payload/types'
 import { parse } from 'url'
+import * as trpcExpress from '@trpc/server/adapters/express'
+import { inferAsyncReturnType } from '@trpc/server'
 
 const app = express()
 const PORT = Number(process.env.PORT) || 3000
 
+
+const createContext = ({
+  req,
+  res
+}: trpcExpress.CreateExpressContextOptions) => ({
+  req,
+  res
+})
+
+export type ExpressContext = inferAsyncReturnType<typeof createContext>
 
 export type WebhookRequest = IncomingMessage & {
   rawBody: Buffer
