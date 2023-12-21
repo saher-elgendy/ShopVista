@@ -8,6 +8,7 @@ import { PayloadRequest } from 'payload/types'
 import { parse } from 'url'
 import * as trpcExpress from '@trpc/server/adapters/express'
 import { inferAsyncReturnType } from '@trpc/server'
+import { appRouter } from './trpc'
 
 const app = express()
 const PORT = Number(process.env.PORT) || 3000
@@ -70,6 +71,11 @@ const start = async () => {
   })
 
   app.use('/cart', cartRouter)
+
+  app.use('/api/trpc', trpcExpress.createExpressMiddleware({
+    router: appRouter,
+    createContext
+  }))
 
   app.use((req, res) => nextHandler(req, res))
 
