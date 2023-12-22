@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@radix-ui/react-label';
 import { ArrowRight } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import { AuthCredentialator, TAuthCredentaialsValidator } from '@/lib/validators/account-credentials-validator';
+import { AuthCredentialValidator, TAuthCredentaialsValidator } from '@/lib/validators/account-credentials-validator';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 
@@ -18,7 +18,7 @@ const Page = () => {
         handleSubmit,
         formState: { errors },
     } = useForm<TAuthCredentaialsValidator>({
-        resolver: zodResolver(AuthCredentialator)
+        resolver: zodResolver(AuthCredentialValidator)
     })
 
     const onSubmit = ({ email, password }: TAuthCredentaialsValidator) => {
