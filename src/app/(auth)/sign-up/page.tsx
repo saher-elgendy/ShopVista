@@ -10,7 +10,10 @@ import { ArrowRight } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { AuthCredentialValidator, TAuthCredentaialsValidator } from '@/lib/validators/account-credentials-validator';
 import { zodResolver } from '@hookform/resolvers/zod';
-
+import { useRouter } from 'next/router';
+import { trpc } from '@/trpc/client';
+import { toast } from 'sonner';
+import { ZodError } from 'zod';
 
 const Page = () => {
     const {
@@ -21,8 +24,28 @@ const Page = () => {
         resolver: zodResolver(AuthCredentialValidator)
     })
 
+    const router = useRouter();
+
+    const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
+        onError: (err) => {
+            if (err.data?.code === 'CONFLICT') {
+                toast.error('this email is already in use. sign in instead')
+            }
+
+            if (err instanceof ZodError) {
+                toast.error(err.issues[0].message)
+            }
+
+            toast.error('something went wrong, please try again')
+        },
+        onSuccess: ({ sentToEmail }) => {
+            toast.success(`Verification email sent to ${sentToEmail}`)
+            router.push('/verify-email?to=' + sentToEmail)
+        }
+    })
+    
     const onSubmit = ({ email, password }: TAuthCredentaialsValidator) => {
-        return 
+        mutate({ email, password })
     }
 
     return (
