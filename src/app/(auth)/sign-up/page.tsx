@@ -74,7 +74,7 @@ const Page = () => {
                     </div>
                     <div className='grid gap-3 mt-5'>
                         <Label htmlFor="password" className='font-semibold'>Password</Label>
-                        <Input placeholder="Password" className='font-light ' {...register('password')}></Input>
+                        <Input placeholder="Password" type="password" className='font-light ' {...register('password')}></Input>
                     </div>
                 </form>
                 <Button>Sign up</Button>
