@@ -1,7 +1,8 @@
-import { AuthCredentialValidator } from "@/lib/validators/account-credentials-validator";
+
 import { publicProcedure, router } from "./trpc";
-import { getPayloadClient } from "@/get-payload";
+import { AuthCredentialValidator } from "../lib/validators/account-credentials-validator";
 import { TRPCError } from "@trpc/server";
+import { getPayloadClient } from "../get-payload"
 import { z } from "zod";
 
 export const authRouter = router({
@@ -31,7 +32,7 @@ export const authRouter = router({
         data: {
           email,
           password,
-          role: "user",
+          // role: "user",
         },
       });
 
