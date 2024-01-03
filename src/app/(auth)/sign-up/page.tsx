@@ -10,7 +10,7 @@ import { ArrowRight } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { AuthCredentialValidator, TAuthCredentaialsValidator } from '@/lib/validators/account-credentials-validator';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { trpc } from '@/trpc/client';
 import { toast } from 'sonner';
 import { ZodError } from 'zod';
@@ -26,7 +26,7 @@ const Page = () => {
 
     const router = useRouter();
 
-    const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
+    const { mutate, isLoading } = trpc.auth.createPayloadUser?.useMutation({
         onError: (err) => {
             if (err.data?.code === 'CONFLICT') {
                 toast.error('this email is already in use. sign in instead')
