@@ -4,6 +4,7 @@ import { slateEditor } from '@payloadcms/richtext-slate';
 import dotenv from 'dotenv';
 import path from 'path';
 import { buildConfig } from 'payload/config';
+import { Users } from './collections/Users';
 
 
 
@@ -13,11 +14,12 @@ dotenv.config({
 
 export default buildConfig({
 	serverURL: process.env.NEXT_PUBLICK_SERVER_URL || '',
-	collections: [],
+	collections: [Users],
 	routes: {
 		admin: '/sell'
 	},
 	admin: {
+		user: 'users',
 		bundler: webpackBundler(),
 		meta: {
 			titleSuffix: '- Shopvista',
@@ -34,5 +36,5 @@ export default buildConfig({
 	editor: slateEditor({}),
     typescript: {
 		outputFile: path.resolve(__dirname, 'payload-types.ts')
-	}
+	}, 
 })
