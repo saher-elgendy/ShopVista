@@ -26,7 +26,7 @@ const Page = () => {
 
     const router = useRouter();
 
-    const { mutate, isLoading } = trpc.auth.createPayloadUser?.useMutation({
+    const { mutate, isLoading } =  trpc.auth.createPayloadUser.useMutation({
         onError: (err) => {
             if (err.data?.code === 'CONFLICT') {
                 toast.error('this email is already in use. sign in instead')
@@ -76,10 +76,9 @@ const Page = () => {
                         <Label htmlFor="password" className='font-semibold'>Password</Label>
                         <Input placeholder="Password" type="password" className='font-light ' {...register('password')}></Input>
                     </div>
+                    <Button type="submit">Sign up</Button>
                 </form>
-                <Button>Sign up</Button>
             </div>
-
         </div>
     )
 }
