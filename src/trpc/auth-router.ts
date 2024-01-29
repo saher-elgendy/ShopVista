@@ -32,7 +32,7 @@ export const authRouter = router({
         data: {
           email,
           password,
-          // role: "user",
+          role: "user",
         },
       });
 
